@@ -6,28 +6,27 @@
 
 ## Steps
 
-1. Generate single-event audio clips using T2A ControlNet
--  Install [EzAudio-ControlNet](https://github.com/haidog-yaqub/EzAudio)
--  Prepare reference audio samples (should be trimmed)
--  Use EzAudio-ControlNet to generate variants for reference audio samples:
-```python
+**1. Generate single-event audio clips using T2A ControlNet**  
+- Install [EzAudio-ControlNet](https://github.com/haidog-yaqub/EzAudio)  
+- Prepare trimmed reference audio samples  
+- Generate audio variants using EzAudio-ControlNet:  
 
-from api.ezaudio import EzAudio
+```python
+from api.ezaudio import EzAudio_ControlNet
 import torch
 import soundfile as sf
 
-# load model
+# Load model
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 controlnet = EzAudio_ControlNet(model_name='energy', device=device)
 
 prompt = 'dog barking'
-# path for audio reference
-audio_path = 'egs/reference.mp3'
+audio_path = 'egs/reference.mp3'  # Path to reference audio
 
 sr, audio = controlnet.generate_audio(prompt, audio_path=audio_path)
 sf.write(f"{prompt}_control.wav", audio, samplerate=sr)
 ```
 
-3. Filter the generated audio clips
+**2. Filter the generated audio clips
 
-4. Synthesize strongly labeled audio mixtures
+**3. Synthesize strongly labeled audio mixtures
