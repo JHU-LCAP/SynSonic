@@ -6,8 +6,8 @@
 
 ## Steps
 
-- 1. Generate single-event audio clips using T2A ControlNet
+1. Generate single-event audio clips using T2A ControlNet
 
-- 2. Filter the generated audio clips
+2. Filter the generated audio clips
 
-- 3. Synthesize strongly labeled audio mixtures
+3. Synthesize strongly labeled audio mixtures
