@@ -24,7 +24,7 @@ prompt = 'dog barking'
 audio_path = 'real_dog_barking.wav'  # Path to reference audio
 
 sr, audio = controlnet.generate_audio(prompt, audio_path=audio_path)
-sf.write(f"{prompt}_gen.wav", audio, samplerate=sr)
+sf.write(f"gen_{prompt}.wav", audio, samplerate=sr)
 ```
 
 **2. Filter the generated audio clips**  
