@@ -21,10 +21,10 @@ device = 'cuda' if torch.cuda.is_available() else 'cpu'
 controlnet = EzAudio_ControlNet(model_name='energy', device=device)
 
 prompt = 'dog barking'
-audio_path = 'egs/reference.mp3'  # Path to reference audio
+audio_path = 'real_dog_barking.wav'  # Path to reference audio
 
 sr, audio = controlnet.generate_audio(prompt, audio_path=audio_path)
-sf.write(f"{prompt}_control.wav", audio, samplerate=sr)
+sf.write(f"{prompt}_gen.wav", audio, samplerate=sr)
 ```
 
 **2. Filter the generated audio clips**  
