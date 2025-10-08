@@ -32,9 +32,11 @@ sf.write(f"{prompt}_control.wav", audio, samplerate=sr)
 - Use Dasheng to compute logits  
 - Use CLAP to compute text–audio similarity
 - Rank samples separately by logits and similarity  
-- Re-rank samples using a weighted score:  
+- Re-rank samples using a weighted score:
+```python
   score = w1 * r1 + w2 * r2  
-  where r1 is the rank from logits and r2 is the rank from similarity  
+  # where r1 is the rank from logits and r2 is the rank from similarity
+```
 - Select the top \(k\%\) of samples based on the final score  
 
 
