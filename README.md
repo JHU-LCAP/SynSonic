@@ -43,3 +43,25 @@ sf.write(f"gen_{prompt}.wav", audio, samplerate=sr)
 - Follow this pipeline: [https://github.com/turpaultn/DESED/blob/master/desed/desed/generate_synthetic.py](https://github.com/turpaultn/DESED/blob/master/desed/desed/generate_synthetic.py) to create mixtures with strong labels.
 
 **4. Train and evaluate models using [FDY-SED](https://github.com/frednam93/FDY-SED)**
+
+## Reference
+
+If you find the code useful for your research, please consider citing:
+
+```bibtex
+@article{hai2025synsonic,
+  title={SynSonic: Augmenting Sound Event Detection through Text-to-Audio Diffusion ControlNet and Effective Sample Filtering},
+  author={Hai, Jiarui and Elhilali, Mounya},
+  journal={arXiv preprint arXiv:2509.18603},
+  year={2025}
+}
+```
+
+```bibtex
+@article{hai2024ezaudio,
+  title={EzAudio: Enhancing Text-to-Audio Generation with Efficient Diffusion Transformer},
+  author={Hai, Jiarui and Xu, Yong and Zhang, Hao and Li, Chenxing and Wang, Helin and Elhilali, Mounya and Yu, Dong},
+  journal={arXiv preprint arXiv:2409.10819},
+  year={2024}
+}
+```
