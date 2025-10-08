@@ -33,13 +33,8 @@ sf.write(f"{prompt}_control.wav", audio, samplerate=sr)
 - Use CLAP to compute text–audio similarity
 - Rank samples separately by logits and similarity  
 - Re-rank samples using a weighted score:  
-
-  $$
-  \text{score} = w_1 \cdot r_1 + w_2 \cdot r_2
-  $$  
-
-  where $r_1$ is the rank from logits and $r_2$ is the rank from similarity  
-
+  score = w1 * r1 + w2 * r2  
+  where r1 is the rank from logits and r2 is the rank from similarity  
 - Select the top \(k\%\) of samples based on the final score  
 
 
