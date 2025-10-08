@@ -8,7 +8,7 @@
 
 **1. Generate single-event audio clips using T2A ControlNet**  
 - Install [EzAudio-ControlNet](https://github.com/haidog-yaqub/EzAudio)  
-- Prepare trimmed reference audio samples  
+- Prepare trimmed reference audio samples (Please follow soundbank used in [DCASE SED](https://project.inria.fr/desed/download/synthetic-data/))
 - Generate audio variants using EzAudio-ControlNet:  
 
 ```python
@@ -27,6 +27,20 @@ sr, audio = controlnet.generate_audio(prompt, audio_path=audio_path)
 sf.write(f"{prompt}_control.wav", audio, samplerate=sr)
 ```
 
-**2. Filter the generated audio clips
+**2. Filter the generated audio clips**  
+- Set up [Dasheng](https://github.com/XiaoMi/dasheng) and [Laion-CLAP](https://huggingface.co/laion/clap-htsat-fused)  
+- Use Dasheng to compute logits  
+- Use CLAP to compute text–audio similarity
+- Rank samples separately by logits and similarity  
+- Re-rank samples using a weighted score:  
+  \[
+  \text{score} = w_1 \cdot r_1 + w_2 \cdot r_2
+  \]  
+  where \(r_1\) is the rank from logits and \(r_2\) is the rank from similarity  
+- Select the top \(k\%\) of samples based on the final score  
+
 
 **3. Synthesize strongly labeled audio mixtures
+- Please follow [DCASE SED](https://project.inria.fr/desed/download/synthetic-data/)
+- Download background soundbank: [https://zenodo.org/records/6026841/files/DESED_synth_soundbank.tar.gz](https://zenodo.org/records/6026841/files/DESED_synth_soundbank.tar.gz)
+- Follow this pipeline: [https://github.com/turpaultn/DESED/blob/master/desed/desed/generate_synthetic.py](https://github.com/turpaultn/DESED/blob/master/desed/desed/generate_synthetic.py) to create mixtures with strong labels.
