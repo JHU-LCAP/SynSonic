@@ -4,7 +4,7 @@
 
 🟣 SynSonic is a framework that uses Text-to-Audio ControlNet for synthetic strongly-labeled audio data generation, improving the performance of sound event detection models.
 
-## Steps
+## Pipeline
 
 **1. Generate single-event audio clips using T2A ControlNet**  
 - Install [EzAudio-ControlNet](https://github.com/haidog-yaqub/EzAudio)  
@@ -37,7 +37,9 @@ sf.write(f"gen_{prompt}.wav", audio, samplerate=sr)
 - Select the top \(k\%\) of samples based on the final score  
 
 
-**3. Synthesize strongly labeled audio mixtures
+**3. Synthesize strongly labeled audio mixtures**  
 - Please follow [DCASE SED](https://project.inria.fr/desed/download/synthetic-data/)
 - Download background soundbank: [https://zenodo.org/records/6026841/files/DESED_synth_soundbank.tar.gz](https://zenodo.org/records/6026841/files/DESED_synth_soundbank.tar.gz)
 - Follow this pipeline: [https://github.com/turpaultn/DESED/blob/master/desed/desed/generate_synthetic.py](https://github.com/turpaultn/DESED/blob/master/desed/desed/generate_synthetic.py) to create mixtures with strong labels.
+
+**4. Train and evaluate models using [FDY-SED](https://github.com/frednam93/FDY-SED)**
