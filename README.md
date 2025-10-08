@@ -28,7 +28,7 @@ sf.write(f"gen_{prompt}.wav", audio, samplerate=sr)
 ```
 
 **2. Filter the generated audio clips**  
-- Set up [Dasheng](https://github.com/XiaoMi/dasheng) and [Laion-CLAP](https://huggingface.co/laion/clap-htsat-fused)  
+- Set up [Audioset-finetuned Dasheng](https://github.com/XiaoMi/dasheng) and [Laion-CLAP](https://huggingface.co/laion/clap-htsat-fused)  
 - Use Dasheng to compute logits  
 - Use CLAP to compute text–audio similarity
 - Rank samples separately by logits and similarity  
